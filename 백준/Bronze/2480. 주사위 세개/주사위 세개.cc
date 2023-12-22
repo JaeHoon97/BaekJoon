@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -21,11 +22,7 @@ int main(void) {
         }
     }
 
-    for (int i = 1; i < 3; i++) {
-        if (bigger <= arr[i]) {
-            bigger = arr[i];
-        }
-    }
+    bigger = max({x, y, z});
 
     if (count == 3) {
         money = 10000 + (equal * 1000);
