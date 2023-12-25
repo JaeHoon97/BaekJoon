@@ -1,4 +1,3 @@
-
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -18,18 +17,16 @@ int main(void) {
     for (int i = 0; i < t; i++) {
         cin >> r >> str;
 
-        string s;
+        string str2;
 
-        for (int j = 0; j < str.length(); j++) {
-            for (int k = 0; k < r; k++) {
-                s.push_back(str[j]);
-            }
+        for (int j = 0; j < (str.length() * r); j++) {
+            str2.push_back(str[j / r]);
         }
-        v.push_back(s);
+        v.push_back(str2);
     }
 
     for (int i = 0; i < v.size(); i++) {
-        cout << v[i] << endl;
+        cout << v[i] << "\n";
     }
 
     return 0;
