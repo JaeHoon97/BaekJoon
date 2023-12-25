@@ -5,9 +5,6 @@
 using namespace std;
 
 int main(void) {
-    cin.tie(NULL);
-    ios_base::sync_with_stdio(false);
-
     int t, r;          // 테스트 케이스 t, 반복 횟수 r
     string str;        // 반복할 문자열 str
     vector<string> v;  // 완성된 문자열 v
