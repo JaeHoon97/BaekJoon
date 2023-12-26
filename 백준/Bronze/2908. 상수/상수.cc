@@ -12,11 +12,7 @@ int main(void) {
     reverse(num1.begin(), num1.end());
     reverse(num2.begin(), num2.end());
 
-    if (stoi(num1) >= stoi(num2)) {
-        cout << num1 << endl;
-    } else {
-        cout << num2 << endl;
-    }
+    stoi(num1) >= stoi(num2) ? (cout << num1 << endl) : (cout << num2 << endl);
 
     return 0;
 }
