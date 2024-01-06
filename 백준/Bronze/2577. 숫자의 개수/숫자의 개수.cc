@@ -15,12 +15,9 @@ int main(void) {
     num = a * b * c;
 
     // 17037300
-    while (true) {
+    while (num != 0) {
         arr[num % 10]++;
         num /= 10;
-        if(num == 0){
-            break;
-        }
     }
 
     for (int i = 0; i < 10; i++) {
