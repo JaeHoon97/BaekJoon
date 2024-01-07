@@ -13,11 +13,6 @@ int main(void) {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             cin >> arr[i][j];
-        }
-    }
-
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
             if (i % 2 == 0 && j % 2 == 0 && arr[i][j] == 'F') {
                 white++;
             }
