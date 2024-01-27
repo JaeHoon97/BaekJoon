@@ -9,24 +9,18 @@ int main(void) {
 
     int number, max;
 
-    vector<int> set(10, 0);
+    vector<int> set(9, 0);
 
     cin >> number;
 
     while (number != 0) {
+        if(number % 10 == 9){
+            set[6]++;    
+        }
         set[number % 10]++;
         number /= 10;
     }
-
-    if ((set[6] + set[9]) % 2 == 0) {
-        int avg = (set[6] + set[9]) / 2;
-        set[6] = avg;
-        set[9] = avg;
-    } else {
-        int avg = (set[6] + set[9]) / 2 + 1;
-        set[6] = avg;
-        set[9] = avg;
-    }
+    (set[6] % 2 == 0) ? set[6] /= 2 : set[6] = set[6] / 2 + 1;
 
     max = *max_element(set.begin(), set.end());
 
