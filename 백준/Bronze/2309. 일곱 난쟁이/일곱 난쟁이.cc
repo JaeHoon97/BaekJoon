@@ -1,37 +1,35 @@
 #include <algorithm>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-int main(void) {
+int main() {
     ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
 
-    int over, first, second, sum = 0;
-    vector<int> dwarf(9);
+    int arr[9] = {0}, result[7];
 
     for (int i = 0; i < 9; i++) {
-        cin >> dwarf[i];
-        sum += dwarf[i];
+        cin >> arr[i];
     }
 
-    over = sum - 100;
+    sort(arr, arr + 9);
 
-    for (int i = 0; i < 8; i++) {
-        for (int j = i + 1; j < 9; j++) {
-            if (dwarf[i] + dwarf[j] == over) {
-                first = i;
-                second = j;
-            }
+    do {
+        int sum = 0;
+        for (int i = 0; i < 7; i++) {
+            sum += arr[i];
         }
-    }
+        if (sum == 100) {
+            for (int i = 0; i < 7; i++) {
+                result[i] = arr[i];
+            }
+            break;
+        }
 
-    dwarf.erase(dwarf.begin() + second);
-    dwarf.erase(dwarf.begin() + first);
-    sort(dwarf.begin(), dwarf.end());
+    } while (next_permutation(arr, arr + 9));
 
-    for (int i = 0; i < 7; i++) {
-        cout << dwarf[i] << '\n';
+    for (const auto& num : result) {
+        cout << num << '\n';
     }
 
     return 0;
