@@ -21,7 +21,7 @@ int main() {
 
     for (int i = 0; i < N; i++) {
         string str;
-        getline(cin, str);  // 문자열 입력
+        cin >> str;  // 문자열 입력
 
         v[0] = (str.substr(0, left.size()));  // v[0] : 입력받은 문자열을 left의 사이즈만큼 뽑고 저장.
         str.erase(0, left.size());            // 입력받은 문자열을 left의 사이즈만큼 제거.
