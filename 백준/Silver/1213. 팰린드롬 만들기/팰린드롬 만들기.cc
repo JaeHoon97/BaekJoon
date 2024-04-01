@@ -22,21 +22,15 @@ int main() {
         }
     }
 
-    if (odd == 0) {
-        for (int i = 0; i < 26; i++) {
-            while (word[i] != 0) {
-                result += (65 + i);
-                word[i] -= 2;
-            }
-        }
-        reverseWord = result;
-        reverse(reverseWord.begin(), reverseWord.end());
-        cout << result + reverseWord << endl;
-    } else if (odd == 1) {
-        for (int i = 0; i < 26; i++) {
-            if ((word[i] % 2) != 0) {
-                oddWord = i + 65;
-                word[i]--;
+    if (odd >= 2) {
+        cout << "I'm Sorry Hansoo" << '\n';
+    } else {
+        if (odd == 1) {
+            for (int i = 0; i < 26; i++) {
+                if ((word[i] % 2) != 0) {
+                    oddWord = i + 65;
+                    word[i]--;
+                }
             }
         }
         for (int i = 0; i < 26; i++) {
@@ -48,9 +42,6 @@ int main() {
         reverseWord = result;
         reverse(reverseWord.begin(), reverseWord.end());
         cout << result + oddWord + reverseWord << endl;
-
-    } else {
-        cout << "I'm Sorry Hansoo" << '\n';
     }
 
     return 0;
