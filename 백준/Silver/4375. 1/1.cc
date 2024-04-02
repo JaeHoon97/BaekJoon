@@ -15,8 +15,7 @@ int main() {
                 cout << count << '\n';
                 break;
             } else {
-                i = (i * 10 + 1);
-                i %= N;
+                i = ((i * 10) % N + 1 % N) % N;
                 count++;
             }
         }
