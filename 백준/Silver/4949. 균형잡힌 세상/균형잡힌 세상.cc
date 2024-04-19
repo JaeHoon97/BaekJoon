@@ -1,52 +1,54 @@
+#include <algorithm>
 #include <iostream>
-#include <string>
+#include <queue>
 #include <stack>
+#include <string>
+
 using namespace std;
- 
+
 int main() {
+    ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
+
     while (true) {
-        string input;
-        getline(cin, input);
- 
-        if (input == ".") {
+
+        stack<string> s;
+        string str;
+        int count = 0;
+
+        getline(cin, str);
+
+        if (str.size() == 1 && str.front() == '.') {
             break;
         }
- 
-        stack<char> s;
-        bool flag = 0;
-        for (int i = 0; i < input.length(); i++) {
-            char c = input[i];
-                
-            if ((c == '(') || (c == '[')) {
-                s.push(c);
-            }
-            else if (c == ')') {
-                if (!s.empty() && s.top() == '(') {
+
+        for(const auto& c : str){
+            if(c == '(') {
+                s.push("small");
+                count++;
+            } else if(c == ')') {
+                count--;
+                if(!s.empty()&& s.top() == "small"){
                     s.pop();
-                }
-                else {
-                    flag = 1;
+                } else {
                     break;
                 }
-            }
-            else if (c == ']') {
-                if (!s.empty() && s.top() == '[') {
+            } else if(c == '[') {
+                s.push("big");
+                count++;
+            } else if(c == ']') {
+                count--;
+                if(!s.empty() && s.top() == "big"){
                     s.pop();
-                }
-                else {
-                    flag = 1;
+                } else {
                     break;
                 }
             }
         }
- 
-        if (flag==0 && s.empty()) {
-            cout << "yes" << endl;
-        }
-        else {
-            cout << "no" << endl;
-        }
- 
+
+        (s.empty() && count==0) ? cout << "yes" << '\n' : cout << "no" << '\n';  
+
     }
- 
+    
+
+    return 0;
 }
