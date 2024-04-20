@@ -2,6 +2,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <cstring> //C++
 
 using namespace std;
 
@@ -94,9 +95,5 @@ int checkSize() {
 }
 
 void visitedReset() {
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            visited[i][j] = 0;
-        }
-    }
+    memset(visited, 0, sizeof(visited));
 }
