@@ -43,12 +43,7 @@ int main() {
 
 void dfs(const int& parentNode) {
 
-    if (adj[parentNode].empty()) {
-        result++;
-        return;
-    }
-
-    if (adj[parentNode].size() == 1 && adj[parentNode].front() == eraseNode) {
+    if (adj[parentNode].empty() || adj[parentNode].size() == 1 && adj[parentNode].front() == eraseNode) {
             result++;
             return;
     }
