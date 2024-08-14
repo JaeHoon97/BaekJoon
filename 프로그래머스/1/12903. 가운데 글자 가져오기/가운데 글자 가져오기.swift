@@ -1,16 +1,6 @@
 import Foundation
 
 func solution(_ s:String) -> String {
-    var result = s
-    
-    let count = result.count.isMultiple(of: 2)
-    
-    while true {
-        if (count && result.count == 2) || (!count && result.count == 1){
-            break
-        }
-        result.removeFirst()
-        result.removeLast()
-    }
-    return result
+    var result = Array(s)
+    return s.count.isMultiple(of: 2) ? String(result[(s.count / 2 - 1)...(s.count / 2)]) : String(result[s.count / 2])
 }
