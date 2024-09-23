@@ -2,6 +2,7 @@ import Foundation
 
 func solution(_ x:Int, _ n:Int) -> [Int64] {
     
-    if x == 0 { return Array(repeating: Int64(x), count: n) }
-    return Array(stride(from: Int64(x), through: Int64(x * n), by: x))
+    guard x != 0 else { return Array(repeating: 0, count: n) }
+    
+    return Array(stride(from: x, through: x * n, by: x)).map { Int64($0) }
 }
