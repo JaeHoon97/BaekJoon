@@ -1,3 +1,5 @@
+import Foundation
+
 func solution(_ s:String) -> Int {
-    Int(s)!
+    return Int(s)!
 }
