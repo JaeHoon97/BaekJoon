@@ -1,9 +1,18 @@
 import Foundation
 
 func solution(_ n:Int) -> [Int] {
-    var arr: [Int] = []
-    arr = (2...n).filter { n.isMultiple(of: $0) }
-    return arr.filter { num in
-        (1...num).filter { num.isMultiple(of: $0) }.count == 2
+    var result: Set<Int> = []
+    var num = n
+    
+    while num != 1 {
+        for i in 2...num {
+            if num.isMultiple(of: i) {
+                num /= i
+                result.insert(i)
+                break
+            }
+        }
     }
+    
+    return Array(result).sorted()
 }
