@@ -1,6 +1,11 @@
 import Foundation
 
 func solution(_ n:Int) -> Int {
-    for i in 2...(n-1) { if n % i == 1 { return i } }
-    return 0
+    var result = 2
+    
+    while !(n-1).isMultiple(of: result)  {
+        result += 1
+    }
+    
+    return result
 }
