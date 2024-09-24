@@ -1,9 +1,12 @@
 import Foundation
 
 func solution(_ n:Int64) -> Int64 {
-    var result = sqrt(Double(n))
-
-    if result == Double(Int(result)) { return Int64(pow(result + 1, 2)) }
-
-    return -1
+    
+    let squareRoot = Int(sqrt(Double(n)))
+    
+    if squareRoot * squareRoot == n {
+        return Int64((squareRoot + 1) * (squareRoot + 1))
+    } else {
+        return -1
+    }
 }
