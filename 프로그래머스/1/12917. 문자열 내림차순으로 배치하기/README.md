@@ -1,10 +1,10 @@
 # [level 1] 문자열 내림차순으로 배치하기 - 12917 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12917?language=swift) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12917) 
 
 ### 성능 요약
 
-메모리: 16.1 MB, 시간: 1.46 ms
+메모리: 4.19 MB, 시간: 0.02 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 08월 15일 12:50:03
+2025년 01월 05일 00:37:31
 
 ### 문제 설명
 
