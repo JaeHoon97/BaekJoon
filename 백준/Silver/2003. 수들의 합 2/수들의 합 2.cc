@@ -1,3 +1,4 @@
+// cd "/Users/jaehoon/Desktop/c++/" && g++ -std=c++17 *.cpp -o main && "/Users/jaehoon/Desktop/c++/"main
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -8,25 +9,24 @@ int main() {
     ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
 
     int N, M, result = 0;
-    int arr[10005] = {0};
-    int pSum[10005] = {0};
+    int start = 0, end = 0, sum = 0;
 
     cin >> N >> M;
 
-    for (int i = 1; i <= N; i++) {
-        int num;
-        cin >> num;
-        arr[i] = num;
-        pSum[i] = num + pSum[i - 1];
+    vector<int> v(N, 0);
+
+    for (int i = 0; i < N; i++) {
+        cin >> v[i];
     }
 
-    for (int i = 1; i <= N; i++) {
-        int start = i;
-        while (start <= N) {
-            if (M == pSum[start] - pSum[start - i]) {
-                result++;
-            }
-            start++;
+    while (end <= N) {
+        if (sum < M) {
+            sum += v[end++];
+        } else if (sum > M) {
+            sum -= v[start++];
+        } else {
+            result++;
+            sum += v[end++];
         }
     }
 
