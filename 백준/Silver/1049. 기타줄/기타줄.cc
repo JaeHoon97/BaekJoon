@@ -1,4 +1,3 @@
-// cd "/Users/jaehoon/Desktop/c++/" && g++ -std=c++17 *.cpp -o main && "/Users/jaehoon/Desktop/c++/"main
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -15,27 +14,20 @@ int main() {
     for (int i = 0; i < M; i++) {
         int packagePrice, unitPrice;
         cin >> packagePrice >> unitPrice;
-
         packageMin = min(packageMin, packagePrice);
         unitMin = min(unitMin, unitPrice);
     }
 
-    if ((packageMin / 6) >= unitMin) {
-        cout << N * unitMin << '\n';
-        return 0;
-    }
+    // 단품으로 구매
+    int onlyUnit = N * unitMin;
 
-    int packageCount = 0;
+    // 단품 + 패키지로 구매
+    int packageAndUnit = (N / 6) * packageMin + (N % 6) * unitMin; 
 
-    while (true) {
-        if (packageCount * 6 >= N) {
-            result = min(result, (packageCount * packageMin));
-            break;
-        }
-        int unitCount = N - (packageCount * 6);
-        result = min(result, (packageCount * packageMin) + (unitCount * unitMin));
-        packageCount++;
-    }
+    // 패키지로 구매
+    int onlyPackage = (N % 6 == 0) ? (N / 6 * packageMin) : (((N / 6 + 1) * packageMin));
+
+    result = min(onlyUnit, min(packageAndUnit, onlyPackage));
 
     cout << result << '\n';
 
