@@ -1,23 +1,28 @@
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <stack>
 #include <string>
 #include <vector>
+
 using namespace std;
 
 int solution(int n) {
-    int answer = 0;
-    vector<int> v;
-    while(n!=0)
-    {
-        v.push_back(n%3);
-        n/=3;
+    int answer = 0, x = 0;
+    stack<int> s;
+    string str = "";
+
+    while (n >= 3) {
+        s.push(n % 3);
+        n = n / 3;
     }
-    
-    int expon=1;
-    for(int i=0;i<v.size();i++)
-    {
-        answer+=v[v.size()-i-1]*(expon);
-        expon*=3;
+
+    s.push(n);
+
+    while (!s.empty()) {
+        answer += (s.top() * pow(3, x++));
+        s.pop();
     }
-    
-    
+
     return answer;
 }
