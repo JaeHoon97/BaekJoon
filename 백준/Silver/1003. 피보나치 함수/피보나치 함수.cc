@@ -14,9 +14,8 @@ int main() {
     fibo[1] = {0, 1};
 
     for (int i = 2; i <= 40; i++) {
-        long long first = fibo[i - 1].first + fibo[i - 2].first;
-        long long second = fibo[i - 1].second + fibo[i - 2].second;
-        fibo[i] = {first, second};
+        fibo[i].first = fibo[i - 1].first + fibo[i - 2].first;
+        fibo[i].second = fibo[i - 1].second + fibo[i - 2].second;
     }
 
     cin >> T;
