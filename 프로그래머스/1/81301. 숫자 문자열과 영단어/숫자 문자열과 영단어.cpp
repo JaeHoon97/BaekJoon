@@ -1,34 +1,25 @@
-#include <algorithm>
 #include <iostream>
-#include <map>
 #include <string>
-#include <vector>
+#include <unordered_map>
 
 using namespace std;
 
 int solution(string s) {
-    int answer = 0;
-    string result;
-    string temp;
-    map<string, string> m;
+    // 숫자와 영단어의 매핑
+    unordered_map<string, string> numMap = {
+        {"zero", "0"}, {"one", "1"}, {"two", "2"}, {"three", "3"},
+        {"four", "4"}, {"five", "5"}, {"six", "6"}, {"seven", "7"},
+        {"eight", "8"}, {"nine", "9"}
+    };
 
-    m["zero"] = "0", m["one"] = "1", m["two"] = "2", m["three"] = "3", m["four"] = "4";
-    m["five"] = "5", m["six"] = "6", m["seven"] = "7", m["eight"] = "8", m["nine"] = "9";
-
-    for (char ch : s) {
-        if ('0' <= ch && ch <= '9') {  // 숫자일 경우
-            result += ch;
-            temp = "";
-        } else {  // 영문자일 경우
-            temp += ch;
-            if(temp.size() >= 3 && m.find(temp) != m.end()) {
-                result += m[temp];
-                temp = "";
-            }
+    // 영단어를 숫자로 치환
+    for (const auto& pair : numMap) {
+        size_t pos = 0;
+        while ((pos = s.find(pair.first, pos)) != string::npos) {
+            s.replace(pos, pair.first.length(), pair.second);
         }
     }
 
-    answer = stoi(result);
-
-    return answer;
+    // 최종적으로 숫자로 변환하여 반환
+    return stoi(s);
 }
