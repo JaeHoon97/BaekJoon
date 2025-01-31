@@ -1,29 +1,18 @@
-#include <algorithm>
 #include <iostream>
-
 using namespace std;
 
-int N, jimin, hansu, cnt = 1;
-
 int main() {
-    ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
-
+    int N, jimin, hansu;
     cin >> N >> jimin >> hansu;
 
-    while (true) {
-        if ((jimin + 1 == hansu) && (jimin % 2 != 0 && hansu % 2 == 0)) {
-            break;
-        }
-        if (hansu + 1 == jimin && (hansu % 2 != 0 && jimin % 2 == 0)) {
-            break;
-        }
-
-        cnt++;
-        (jimin % 2 == 0) ? jimin /= 2 : jimin = jimin / 2 + 1;
-        (hansu % 2 == 0) ? hansu /= 2 : hansu = hansu / 2 + 1;
+    int round = 0;
+    
+    while (jimin != hansu) {
+        jimin = (jimin + 1) / 2;
+        hansu = (hansu + 1) / 2;
+        round++;
     }
 
-    cout << cnt << '\n';
-
+    cout << round << endl;
     return 0;
 }
