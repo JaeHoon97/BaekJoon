@@ -10,30 +10,26 @@ vector<int> solution(int num, int total) {
     int start = 0, end = 0, psum = 0, size = 1;
 
     while (true) {
-        if(psum == total && size == num) {
+        if (psum == total && size == num) {
             break;
         }
         if (psum < total) {
+            end++;
+            psum += end;
             if (size != num) {
-                end++;
-                psum += end;
                 size++;
             } else {
                 psum -= start;
                 start++;
-                end++;
-                psum += end;
             }
         } else {  // psum > total
+            start--;
+            psum += start;
             if (size != num) {
-                start--;
-                psum += start;
                 size++;
             } else {
                 psum -= end;
                 end--;
-                start--;
-                psum += start;
             }
         }
     }
