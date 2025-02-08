@@ -10,15 +10,14 @@ int testCase;
 bool prime[100001];
 
 void initPrime() {
-    for (int i = 0; i < 100001; i++) {
-        prime[i] = true;
-    }
+    fill(prime, prime + 100001, true);
+    prime[0] = prime[1] = false;
 
     for (int i = 2; i < 100001; i++) {
-        if (prime[i] == false) {
+        if (!prime[i]) {
             continue;
         }
-        for (int j = i + i; j < 100001; j += i) {
+        for (int j = i * 2; j < 100001; j += i) {
             prime[j] = false;
         }
     }
@@ -41,7 +40,6 @@ int main() {
             if (prime[index] == true && num % index == 0) {
                 num /= index;
                 m[index]++;
-                index = 2;
             } else {
                 index++;
             }
