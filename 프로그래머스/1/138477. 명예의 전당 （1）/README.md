@@ -1,10 +1,10 @@
 # [level 1] 명예의 전당 (1) - 138477 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/138477?language=swift) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/138477) 
 
 ### 성능 요약
 
-메모리: 16.7 MB, 시간: 7.96 ms
+메모리: 4.14 MB, 시간: 0.37 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 13일 20:25:43
+2025년 02월 15일 20:12:49
 
 ### 문제 설명
 
