@@ -17,11 +17,8 @@ vector<int> solution(int N, vector<int> stages) {
     vector<int> user(N + 2, 0); // 스테이지는 N+1까지, 마지막까지 클리어한 사람 포함
     vector<pair<int, double>> fail;
 
-    // 각 스테이지에 멈춰 있는 사용자 수 계산
     for (auto stage : stages) {
-        if (stage <= N) {
-            user[stage]++;
-        }
+        user[stage]++;
     }
 
     double userTotal = stages.size();
