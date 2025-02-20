@@ -18,9 +18,8 @@ string solution(string s, string skip, int index) {
 
     for (char ch : s) {
         int pos = 0;
-        while ((pos = str.find(ch)) != string::npos) {
+        if ((pos = str.find(ch)) != string::npos) {
             answer += str.at((pos + index) % str.size());
-            break;
         }
     }
 
